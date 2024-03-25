@@ -181,6 +181,11 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
     }// </editor-fold>//GEN-END:initComponents
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int poliOption = 0;
+        do {
+            poliOption = Integer.parseInt(JOptionPane.showInputDialog(this, "¿En cuál polinomio desea ingresar?\n1. Polinomio 1 |   2. Polinomio 2"));
+        } while (poliOption != 1 && poliOption != 2);
+
         int coeficiente = 0, exponente = 0;
         String x = JOptionPane.showInputDialog(this, "entre el coeficiente");
         if (x != null) {
@@ -192,8 +197,15 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
             exponente = Integer.parseInt(x);
 
         }
-        p1.insertarTermino(coeficiente, exponente);
-        repaint();
+        if (poliOption == 1) {
+            p1.insertarTermino(coeficiente, exponente);
+            repaint();
+        }
+        if (poliOption == 2) {
+            p2.insertarTermino(coeficiente, exponente);
+            repaint();
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
