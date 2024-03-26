@@ -237,22 +237,26 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
 
     //Botón Eliminar Término
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        int poliOption = 0;
-        do {
-            poliOption = Integer.parseInt(JOptionPane.showInputDialog(this, "¿En cuál polinomio desea eliminar el término?\n1. Polinomio 1 |   2. Polinomio 2"));
-        } while (poliOption != 1 && poliOption != 2);
+        if (p1.getPunta() == null || p2.getPunta() == null) {
+            JOptionPane.showMessageDialog(null, "Listas Vacías.");
+        } else {
+            int poliOption = 0;
+            do {
+                poliOption = Integer.parseInt(JOptionPane.showInputDialog(this, "¿En cuál polinomio desea eliminar el término?\n1. Polinomio 1 |   2. Polinomio 2"));
+            } while (poliOption != 1 && poliOption != 2);
 
-        int exponente = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el exponente del término que desea eliminar:"));
+            int exponente = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el exponente del término que desea eliminar:"));
 
-        if (poliOption == 1) {
-            p1.eliminarTermino(exponente);
-            repaint();
+            if (poliOption == 1 && p1.getPunta() != null) {
+                p1.eliminarTermino(exponente);
+                repaint();
+            } else if (poliOption == 2 && p2.getPunta() != null) {
+                p2.eliminarTermino(exponente);
+                repaint();
+            } else {
+                JOptionPane.showMessageDialog(null, "El polinomio seleccionado está vacío.");
+            }
         }
-        if (poliOption == 2) {
-            p2.eliminarTermino(exponente);
-            repaint();
-        }
-
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
