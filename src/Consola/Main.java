@@ -4,44 +4,49 @@
  */
 package Consola;
 
+import java.util.Scanner;
+
 /**
+ * 
  *
  * @author allil
  */
 public class Main {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        PolF3 pol1 = new PolF3("A");
 
-        //Insertando terminos 1 a 1
-        pol1.insertarTermino(2,100);
-        pol1.insertarTermino(4,5);
-        pol1.insertarTermino(-2,1);
-        pol1.insertarTermino(1,0);
+
+        System.out.println("Ingrese los términos del primer polinomio:");
+        PolF3 polinomio1 = new PolF3("Polinomio 1"); 
+        polinomio1.crearPolinomio();
+
+        System.out.println("Ingrese los términos del segundo polinomio:");
+        PolF3 polinomio2 = new PolF3("Polinomio 2");
+        polinomio2.crearPolinomio();
+
+        PolF3 resultadoSuma = polinomio1.sumar(polinomio1, polinomio2);
+
+        System.out.println("El polinomio resultante de la suma es:");
+        System.out.println(resultadoSuma.mostrarPolinomio());
+        
+
+        
+
+       
+        
+        
+
+
+
+
+       
+
+        
 
         //Mostrar Polinomio
-        System.out.println(pol1.mostrarPolinomio());
-
-        PolF3 pol2 = new PolF3("B");
-
-        //Crear Polinomio con datos de entrada por teclado.
-        pol2.crearPolinomio();
-
-        //Mostrar Polinomio
-        System.out.println(pol2.mostrarPolinomio());
-
-        //Multiplicar dos polinomios
-        PolF3 pol3 = pol1.multiplicar(pol2);
-
-        //Mostrar Polinomio
-        System.out.println(pol3.mostrarPolinomio());
-
-        //Sunmar dos polinomios
-        PolF3 pol4 = pol1.sumar(pol2);
-
-        //Mostrar Polinomio
-        System.out.println(pol4.mostrarPolinomio());
+       // System.out.println(pol4.mostrarPolinomio());
 
 
     }

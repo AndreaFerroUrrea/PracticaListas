@@ -11,8 +11,10 @@ package Front_en;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import javax.swing.JOptionPane;
 
 public class PolF3 {
+
     //atributos de la clase
     private String nombre;
     private Nodo punta;// atributo que indica donde inicia la lista
@@ -61,7 +63,136 @@ public class PolF3 {
             }
         }
     }
+    
+    //Eliminar un término
+    public void eliminarTermino(int exp) {
+    if (punta == null) {
+        // La lista está vacía, no hay nada que eliminar
+        JOptionPane.showInputDialog(this, "Lista Vacía");
+        return;
+    }
 
+    Nodo p = punta;
+    Nodo ant = null;
+
+    // Buscamos el término con el exponente dado
+    while (p != null && p.obtenerExp() != exp) {
+        ant = p;
+        p = p.obtenerLiga();
+    }
+
+    // Si no encontramos el término, no hay nada que eliminar
+    if (p == null) {
+        return;
+    }
+
+    // Si encontramos el término, lo eliminamos
+    if (ant == null) {
+        // El término a eliminar es el primero de la lista
+        punta = punta.obtenerLiga();
+    } else {
+        ant.asignarLiga(p.obtenerLiga());
+    }
+}
+
+
+    //Sumar P1 P2 Mostrar en P3
+    public Consola.PolF3 sumar(Consola.PolF3 pol1, Consola.PolF3 pol2) {
+        Consola.Nodo P = pol1.obtenerPunta();
+        Consola.Nodo Q = pol2.obtenerPunta();
+        Consola.PolF3 resultado = new Consola.PolF3("Resultado");
+
+        while (P != null || Q != null) {
+            if (P != null && Q != null) {
+                if (P.obtenerExp() == Q.obtenerExp()) {
+                    resultado.insertarTermino(P.obtenerCoe() + Q.obtenerCoe(), P.obtenerExp());
+                    P = P.obtenerLiga();
+                    Q = Q.obtenerLiga();
+                } else if (P.obtenerExp() > Q.obtenerExp()) {
+                    resultado.insertarTermino(P.obtenerCoe(), P.obtenerExp());
+                    P = P.obtenerLiga();
+                } else {
+                    resultado.insertarTermino(Q.obtenerCoe(), Q.obtenerExp());
+                    Q = Q.obtenerLiga();
+                }
+            } else if (P != null) {
+                resultado.insertarTermino(P.obtenerCoe(), P.obtenerExp());
+                P = P.obtenerLiga();
+            } else {
+                resultado.insertarTermino(Q.obtenerCoe(), Q.obtenerExp());
+                Q = Q.obtenerLiga();
+            }
+        }
+
+        return resultado;
+    }
+
+    public PolF3 sumar(PolF3 pol1, PolF3 pol2) {
+        Nodo P = pol1.getPunta();
+        Nodo Q = pol2.getPunta();
+        PolF3 resultado = new PolF3("Resultado");
+
+        while (P != null || Q != null) {
+            if (P != null && Q != null) {
+                if (P.obtenerExp() == Q.obtenerExp()) {
+                    resultado.insertarTermino(P.obtenerCoe() + Q.obtenerCoe(), P.obtenerExp());
+                    P = P.obtenerLiga();
+                    Q = Q.obtenerLiga();
+                } else if (P.obtenerExp() > Q.obtenerExp()) {
+                    resultado.insertarTermino(P.obtenerCoe(), P.obtenerExp());
+                    P = P.obtenerLiga();
+                } else {
+                    resultado.insertarTermino(Q.obtenerCoe(), Q.obtenerExp());
+                    Q = Q.obtenerLiga();
+                }
+            } else if (P != null) {
+                resultado.insertarTermino(P.obtenerCoe(), P.obtenerExp());
+                P = P.obtenerLiga();
+            } else {
+                resultado.insertarTermino(Q.obtenerCoe(), Q.obtenerExp());
+                Q = Q.obtenerLiga();
+            }
+        }
+
+        return resultado;
+    }
+
+    public PolF3 multiplicar(Nodo B) {
+        int expA = 0;
+        int expB = 0;
+        int expC = 0;
+        int coefC = 0;
+        PolF3 p4 = new PolF3("p3");
+        Nodo A = getPunta();
+        while (A != null) {
+            expA = A.obtenerExp();
+            Nodo tempB = B; // Guardamos una copia de B para cada término de A
+            while (tempB != null) {
+                expB = tempB.obtenerExp();
+                expC = expA + expB;
+                coefC = A.obtenerCoe() * tempB.obtenerCoe();
+                p4.insertarTermino(coefC, expC);
+                tempB = tempB.obtenerLiga();
+            }
+            A = A.obtenerLiga();
+        }
+        return p4;
+        /*
+        int[] C = new int[p1[0] + B[0] + 2];
+        C[0] = A[0] + B[0];
+        for (int j = 1 ; j < B[0]+2 ; j++){
+            expB = B[0] + 1 - j;
+            for (int k = 1; k < A[0]+2; k++) {
+                expA = A[0] + 1 - k;
+                expC = expA + expB;
+                coefC = A[k] * B[j];
+                posC = C[0] + 1 - expC;
+                C[posC] = C[posC] + coefC;
+            }
+        }
+         */
+
+    }
 
     public void pintarLista(Graphics g, int x, int y) {
         int ancho = 150, alto = 50;
@@ -142,5 +273,8 @@ public class PolF3 {
         }
     }
 
+    public Nodo getPunta() {
+        return punta;
+    }
+
 }
-        

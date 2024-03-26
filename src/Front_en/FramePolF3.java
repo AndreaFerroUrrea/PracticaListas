@@ -11,6 +11,8 @@ package Front_en;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -24,9 +26,16 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
 
     public FramePolF3() {
         initComponents();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(800, 700); // Tamaño de la ventana 700x400 píxeles
+        this.setResizable(false); //No se redimensione el tamaño de la ventana
+        this.setLocationRelativeTo(null); //Se ejecute en la mitad de la pantalla
+        ImageIcon icono = new ImageIcon(getClass().getResource("/img/LogoP.png"));
+        this.setIconImage(icono.getImage());
         p1 = new PolF3("P1");
         p2 = new PolF3("P2");
         p3 = new PolF3("P3");
+
     }
 
     public void stateChanged(ChangeEvent g) {
@@ -43,7 +52,6 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
         int posC = 100 - jScrollPane1.getViewport().getViewPosition().x;
         int posF = 10 - jScrollPane1.getViewport().getViewPosition().y;
         g1.setColor(Color.black);
-
 
         if (p1 != null) {
             p1.pintarLista(g1, posC, posF + 50);
@@ -70,6 +78,9 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("POLINOMIOS REPRESENTADOS COMO LISTAS SIMPLEMENTE LIGADAS");
@@ -105,6 +116,27 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
             }
         });
 
+        jButton3.setText("Multiplicar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Eliminar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Dividir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,7 +147,12 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
                                                 .addGap(101, 101, 101)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                         .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addContainerGap()
                                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1309, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -131,12 +168,31 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton2)
                                 .addGap(32, 32, 32))
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(54, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton4)
+                                .addGap(32, 32, 32))
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(54, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton5)
+                                .addGap(32, 32, 32))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int poliOption = 0;
+        do {
+            poliOption = Integer.parseInt(JOptionPane.showInputDialog(this, "¿En cuál polinomio desea ingresar?\n1. Polinomio 1 |   2. Polinomio 2"));
+        } while (poliOption != 1 && poliOption != 2);
+
         int coeficiente = 0, exponente = 0;
         String x = JOptionPane.showInputDialog(this, "entre el coeficiente");
         if (x != null) {
@@ -148,14 +204,60 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
             exponente = Integer.parseInt(x);
 
         }
-        p1.insertarTermino(coeficiente, exponente);
-        repaint();
+        if (poliOption == 1) {
+            p1.insertarTermino(coeficiente, exponente);
+            repaint();
+        }
+        if (poliOption == 2) {
+            p2.insertarTermino(coeficiente, exponente);
+            repaint();
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    //Botón sumar
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        if (p1.getPunta() == null || p2.getPunta() == null) {
+            JOptionPane.showMessageDialog(null, "Falta un polinomio.");
+            return;
+        }
+        p3 = p1.sumar(p1, p2);
+        repaint();
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (p1.getPunta() == null || p2.getPunta() == null) {
+            JOptionPane.showMessageDialog(null, "Falta un polinomio.");
+            return;
+        }
+        p3 = p1.multiplicar(p2.getPunta());
+        repaint();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    //Botón Eliminar Término
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        int poliOption = 0;
+        do {
+            poliOption = Integer.parseInt(JOptionPane.showInputDialog(this, "¿En cuál polinomio desea eliminar el término?\n1. Polinomio 1 |   2. Polinomio 2"));
+        } while (poliOption != 1 && poliOption != 2);
+
+        int exponente = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el exponente del término que desea eliminar:"));
+
+        if (poliOption == 1) {
+            p1.eliminarTermino(exponente);
+            repaint();
+        }
+        if (poliOption == 2) {
+            p2.eliminarTermino(exponente);
+            repaint();
+        }
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,6 +297,9 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

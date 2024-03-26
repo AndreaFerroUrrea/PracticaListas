@@ -10,8 +10,8 @@ package Consola;
  */
 public class Nodo {
     //atributos de la clase
-    private int coe;// para guardar el coe
-    private int exp;
+    int coe;// para guardar el coe
+    int exp;
     private Nodo liga;//para guardar la referencia al siguiente Nodo
 
     public Nodo(int coe, int exp)//constructor que recibe como parámetro el coe
@@ -19,6 +19,9 @@ public class Nodo {
         this.coe = coe;
         this.exp = exp;
         liga = null;
+    }
+
+    Nodo() {
     }
 
     // método encargado de devolver el coe

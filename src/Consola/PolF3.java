@@ -116,44 +116,38 @@ public class PolF3 {
         }
     }
 
-    public PolF3 sumar(PolF3 B){
-        int expA = 0;
-        int expB = 0;
-        int coefA = 0;
-        int coefB = 0;
-        Nodo P = null;
-        Nodo Q = null;
-        PolF3 C = new PolF3("C");
-        P = punta;
-        Q = B.obtenerPunta();
-        while ((P != null) && (Q != null)){
-            expA = P.obtenerExp();
-            expB = Q.obtenerExp();
-            coefA = P.obtenerCoe();
-            coefB = Q.obtenerCoe();
-            if (expA == expB){
-                C.insertarTermino(coefA + coefB, expA);
+    public PolF3 sumar(PolF3 pol1, PolF3 pol2) {
+    Nodo P = pol1.obtenerPunta();
+    Nodo Q = pol2.obtenerPunta();
+    PolF3 resultado = new PolF3("Resultado");
+
+    while (P != null || Q != null) {
+        if (P != null && Q != null) {
+            if (P.obtenerExp() == Q.obtenerExp()) {
+                resultado.insertarTermino(P.obtenerCoe() + Q.obtenerCoe(), P.obtenerExp());
                 P = P.obtenerLiga();
                 Q = Q.obtenerLiga();
-            }else if (expA > expB){
-                C.insertarTermino(coefA, expA);
+            } else if (P.obtenerExp() > Q.obtenerExp()) {
+                resultado.insertarTermino(P.obtenerCoe(), P.obtenerExp());
                 P = P.obtenerLiga();
-            }else if (expB > expA){
-                C.insertarTermino(coefB, expB);
+            } else {
+                resultado.insertarTermino(Q.obtenerCoe(), Q.obtenerExp());
                 Q = Q.obtenerLiga();
             }
-        }
-        while (P != null){
-            C.insertarTermino(P.obtenerCoe(), P.obtenerExp());
+        } else if (P != null) {
+            resultado.insertarTermino(P.obtenerCoe(), P.obtenerExp());
             P = P.obtenerLiga();
-        }
-        while (Q != null){
-            C.insertarTermino(Q.obtenerCoe(), Q.obtenerExp());
+        } else {
+            resultado.insertarTermino(Q.obtenerCoe(), Q.obtenerExp());
             Q = Q.obtenerLiga();
         }
-
-        return C;
     }
+
+    return resultado;
+}
+        
+        
+    
 
     public PolF3 multiplicar(PolF3 B){
         int expA = 0;
@@ -177,4 +171,23 @@ public class PolF3 {
         }
         return  C;
     }
+
+    private void crearPolinomio(int coe, int exp) {
+        Nodo n = new Nodo(coe, exp);
+        if (punta == null) {
+            punta = n;
+        } else {
+            Nodo ultimo = punta;
+            while (ultimo.obtenerLiga() != null) {
+                ultimo = ultimo.obtenerLiga();
+            }
+            ultimo.asignarLiga(n);
+        }
+    }
+    
+    
+
+    
+    
+    
 }
