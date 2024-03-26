@@ -153,6 +153,10 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
                                                         .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                         .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+<<<<<<< HEAD
+=======
+                                        
+>>>>>>> 856f0aac9d111b8c02252ad3f9cb36afd9d4d0cd
                                         .addGroup(layout.createSequentialGroup()
                                                 .addContainerGap()
                                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1309, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -186,7 +190,7 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int poliOption = 0;
         do {
@@ -212,17 +216,24 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
             p2.insertarTermino(coeficiente, exponente);
             repaint();
         }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 856f0aac9d111b8c02252ad3f9cb36afd9d4d0cd
     }//GEN-LAST:event_jButton1ActionPerformed
 
     //Botón sumar
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+<<<<<<< HEAD
         if (p1.getPunta() == null || p2.getPunta() == null) {
             JOptionPane.showMessageDialog(null, "Falta un polinomio.");
             return;
         }
         p3 = p1.sumar(p1, p2);
         repaint();
+=======
+>>>>>>> 856f0aac9d111b8c02252ad3f9cb36afd9d4d0cd
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -235,6 +246,7 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
         repaint();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+<<<<<<< HEAD
     //Botón Eliminar Término
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if (p1.getPunta() == null || p2.getPunta() == null) {
@@ -261,6 +273,14 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
+=======
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        
+>>>>>>> 856f0aac9d111b8c02252ad3f9cb36afd9d4d0cd
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**

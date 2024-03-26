@@ -72,6 +72,7 @@ public class PolF3 {
         return;
     }
 
+<<<<<<< HEAD
     Nodo p = punta;
     Nodo ant = null;
 
@@ -157,6 +158,8 @@ public class PolF3 {
         return resultado;
     }
 
+=======
+>>>>>>> 856f0aac9d111b8c02252ad3f9cb36afd9d4d0cd
     public PolF3 multiplicar(Nodo B) {
         int expA = 0;
         int expB = 0;
@@ -191,8 +194,14 @@ public class PolF3 {
             }
         }
          */
+<<<<<<< HEAD
 
     }
+=======
+        
+    }
+
+>>>>>>> 856f0aac9d111b8c02252ad3f9cb36afd9d4d0cd
 
     public void pintarLista(Graphics g, int x, int y) {
         int ancho = 150, alto = 50;
@@ -277,4 +286,9 @@ public class PolF3 {
         return punta;
     }
 
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> 856f0aac9d111b8c02252ad3f9cb36afd9d4d0cd
 }
