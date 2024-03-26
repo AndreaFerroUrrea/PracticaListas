@@ -62,6 +62,43 @@ public class PolF3 {
         }
     }
 
+    public PolF3 multiplicar(Nodo B) {
+        int expA = 0;
+        int expB = 0;
+        int expC = 0;
+        int coefC = 0;
+        PolF3 p4 = new PolF3("p3");
+        Nodo A = getPunta();
+        while (A != null) {
+            expA = A.obtenerExp();
+            Nodo tempB = B; // Guardamos una copia de B para cada término de A
+            while (tempB != null) {
+                expB = tempB.obtenerExp();
+                expC = expA + expB;
+                coefC = A.obtenerCoe() * tempB.obtenerCoe();
+                p4.insertarTermino(coefC, expC);
+                tempB = tempB.obtenerLiga();
+            }
+            A = A.obtenerLiga();
+        }
+        return p4;
+        /*
+        int[] C = new int[p1[0] + B[0] + 2];
+        C[0] = A[0] + B[0];
+        for (int j = 1 ; j < B[0]+2 ; j++){
+            expB = B[0] + 1 - j;
+            for (int k = 1; k < A[0]+2; k++) {
+                expA = A[0] + 1 - k;
+                expC = expA + expB;
+                coefC = A[k] * B[j];
+                posC = C[0] + 1 - expC;
+                C[posC] = C[posC] + coefC;
+            }
+        }
+         */
+        
+    }
+
 
     public void pintarLista(Graphics g, int x, int y) {
         int ancho = 150, alto = 50;
@@ -141,6 +178,12 @@ public class PolF3 {
 
         }
     }
+
+    public Nodo getPunta() {
+        return punta;
+    }
+
+    
 
 }
         
