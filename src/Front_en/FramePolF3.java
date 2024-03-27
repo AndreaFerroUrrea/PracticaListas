@@ -12,6 +12,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
@@ -153,10 +154,6 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
                                                         .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                         .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-<<<<<<< HEAD
-=======
-                                        
->>>>>>> 856f0aac9d111b8c02252ad3f9cb36afd9d4d0cd
                                         .addGroup(layout.createSequentialGroup()
                                                 .addContainerGap()
                                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1309, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -216,41 +213,41 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
             p2.insertarTermino(coeficiente, exponente);
             repaint();
         }
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 856f0aac9d111b8c02252ad3f9cb36afd9d4d0cd
     }//GEN-LAST:event_jButton1ActionPerformed
 
     //Botón sumar
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-<<<<<<< HEAD
         if (p1.getPunta() == null || p2.getPunta() == null) {
-            JOptionPane.showMessageDialog(null, "Falta un polinomio.");
+            JOptionPane optionPane = new JOptionPane("Falta un polinomio.", JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = optionPane.createDialog(null, "Mensaje");
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
             return;
         }
         p3 = p1.sumar(p1, p2);
         repaint();
-=======
->>>>>>> 856f0aac9d111b8c02252ad3f9cb36afd9d4d0cd
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if (p1.getPunta() == null || p2.getPunta() == null) {
-            JOptionPane.showMessageDialog(null, "Falta un polinomio.");
+            JOptionPane optionPane = new JOptionPane("Falta un polinomio.", JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = optionPane.createDialog(null, "Mensaje");
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
             return;
         }
         p3 = p1.multiplicar(p2.getPunta());
         repaint();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-<<<<<<< HEAD
     //Botón Eliminar Término
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if (p1.getPunta() == null || p2.getPunta() == null) {
-            JOptionPane.showMessageDialog(null, "Listas Vacías.");
+        if (p1.getPunta() == null && p2.getPunta() == null) {
+            JOptionPane optionPane = new JOptionPane("Listas Vacias.", JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = optionPane.createDialog(null, "Mensaje");
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
         } else {
             int poliOption = 0;
             do {
@@ -266,21 +263,17 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
                 p2.eliminarTermino(exponente);
                 repaint();
             } else {
-                JOptionPane.showMessageDialog(null, "El polinomio seleccionado está vacío.");
+                
+                JOptionPane optionPane = new JOptionPane("El polinomio seleccionado está vacío.", JOptionPane.INFORMATION_MESSAGE);
+                JDialog dialog = optionPane.createDialog(null, "Mensaje");
+                dialog.setAlwaysOnTop(true);
+                dialog.setVisible(true);
             }
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
-=======
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
->>>>>>> 856f0aac9d111b8c02252ad3f9cb36afd9d4d0cd
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
