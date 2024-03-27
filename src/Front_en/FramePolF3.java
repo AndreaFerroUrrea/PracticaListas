@@ -187,7 +187,7 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int poliOption = 0;
         do {
@@ -217,7 +217,12 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
 
     //Botón sumar
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (p1.getPunta() == null || p2.getPunta() == null) {
+        if (p1.getPunta() == null && p2.getPunta() == null) {
+            JOptionPane optionPane = new JOptionPane("Listas Vacias.", JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = optionPane.createDialog(null, "Mensaje");
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+        } else if (p1.getPunta() == null || p2.getPunta() == null) {
             JOptionPane optionPane = new JOptionPane("Falta un polinomio.", JOptionPane.INFORMATION_MESSAGE);
             JDialog dialog = optionPane.createDialog(null, "Mensaje");
             dialog.setAlwaysOnTop(true);
@@ -230,7 +235,12 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if (p1.getPunta() == null || p2.getPunta() == null) {
+        if (p1.getPunta() == null && p2.getPunta() == null) {
+            JOptionPane optionPane = new JOptionPane("Listas Vacias.", JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = optionPane.createDialog(null, "Mensaje");
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+        } else if (p1.getPunta() == null || p2.getPunta() == null) {
             JOptionPane optionPane = new JOptionPane("Falta un polinomio.", JOptionPane.INFORMATION_MESSAGE);
             JDialog dialog = optionPane.createDialog(null, "Mensaje");
             dialog.setAlwaysOnTop(true);
@@ -263,7 +273,7 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
                 p2.eliminarTermino(exponente);
                 repaint();
             } else {
-                
+
                 JOptionPane optionPane = new JOptionPane("El polinomio seleccionado está vacío.", JOptionPane.INFORMATION_MESSAGE);
                 JDialog dialog = optionPane.createDialog(null, "Mensaje");
                 dialog.setAlwaysOnTop(true);
