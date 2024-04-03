@@ -9,6 +9,7 @@ import java.util.Scanner;
 /**
  * 
  *
+ * 
  * @author allil
  */
 public class Main {
