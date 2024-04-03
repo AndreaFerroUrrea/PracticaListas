@@ -273,6 +273,29 @@ public class PolF3 {
         }
     }
 
+    //Dividir polinomios
+    public PolF3 dividir(Nodo B) {
+        int expA = 0;
+        int expB = 0;
+        int expC = 0;
+        int coefC = 0;
+        PolF3 p4 = new PolF3("p3");
+        Nodo A = getPunta();
+        while (A != null) {
+            expA = A.obtenerExp();
+            Nodo tempB = B; // Guardamos una copia de B para cada término de A
+            while (tempB != null) {
+                expB = tempB.obtenerExp();
+                expC = expA - expB;
+                coefC = A.obtenerCoe() / tempB.obtenerCoe();
+                p4.insertarTermino(coefC, expC);
+                tempB = tempB.obtenerLiga();
+            }
+            A = A.obtenerLiga();
+        }
+        return p4;
+    }
+
     public Nodo getPunta() {
         return punta;
     }
