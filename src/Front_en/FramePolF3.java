@@ -234,6 +234,7 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    //Multiplicar
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if (p1.getPunta() == null && p2.getPunta() == null) {
             JOptionPane optionPane = new JOptionPane("Listas Vacias.", JOptionPane.INFORMATION_MESSAGE);
@@ -282,8 +283,23 @@ public class FramePolF3 extends javax.swing.JFrame implements ChangeListener {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
+    //Botón de dividir
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        if (p1.getPunta() == null && p2.getPunta() == null) {
+            JOptionPane optionPane = new JOptionPane("Listas Vacias.", JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = optionPane.createDialog(null, "Mensaje");
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+        } else if (p1.getPunta() == null || p2.getPunta() == null) {
+            JOptionPane optionPane = new JOptionPane("Falta un polinomio.", JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = optionPane.createDialog(null, "Mensaje");
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+            return;
+        }
+        p3 = p1.dividir(p2.getPunta());
+        repaint();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
