@@ -29,7 +29,7 @@ public class Nodo {
         return coe;
     }
 
-    // método encargado de devolver el coe
+    // método encargado de devolver el exp
     public int obtenerExp() {
         return exp;
     }
