@@ -31,23 +31,8 @@ public class Main {
 
         System.out.println("El polinomio resultante de la suma es:");
         System.out.println(resultadoSuma.mostrarPolinomio());
-        
-
-        
-
-       
-        
-        
-
-
-
-
-       
-
-        
-
-        //Mostrar Polinomio
-       // System.out.println(pol4.mostrarPolinomio());
+    //Mostrar Polinomio
+    // System.out.println(pol4.mostrarPolinomio());
 
 
     }
