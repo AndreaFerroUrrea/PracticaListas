@@ -185,7 +185,29 @@ public class PolF3 {
         }
     }
     
-    
+    //Dividir
+    public PolF3 dividir(PolF3 B){
+        int expA = 0;
+        int expB = 0;
+        int coeA = 0;
+        int coeB = 0;
+        PolF3 C = new PolF3("C");
+        Nodo Q = null;
+        Nodo R = punta;
+        while ( R != null){
+            Q = B.obtenerPunta();
+            while ( Q != null){
+                expA = R.obtenerExp();
+                expB = Q.obtenerExp();
+                coeA = R.obtenerCoe();
+                coeB = Q.obtenerCoe();
+                C.insertarTermino(coeA * coeB, expA + expB);
+                Q = Q.obtenerLiga();
+            }
+            R = R.obtenerLiga();
+        }
+        return  C;
+    }
 
     
     
